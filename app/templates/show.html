@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Show {{ name }}</title>
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12">
+                <h1>{{ name }}</h1>
+            </div>
+
+            <div class="clearfix"></div> 
+
+            <div class="col-12">
+            
+                <table  class="table table-striped table-dark table-hover">
+                
+                  <thead>
+                    <tr style="text-align: right">
+                    {% for column in records.columns : %}
+                      <th>{{column}}</th>
+                    {% endfor %}
+                    </tr>
+                  </thead>
+                  
+                  <tbody>
+                    {% for values in records.values : %}
+                    <tr>
+                        {% for val in values: %}
+                            <th>{{ val }}</th>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}             
+                  </tbody>
+                  
+                </table>
+
+            </div>
+
+        </div>
+
+
+        {% if name == 'titanic' %}
+        <div class="row">
+          <div class="col-4">
+            <img src="{{ url_for('static', filename='tmp/titanic_hist.png') }}" alt="">
+          </div>
+          <div class="col-4">
+            <img src="{{ url_for('static', filename='tmp/titanic_kde.png') }}" alt="">
+          </div>
+
+          <div class="col-4">
+              <img src="{{ url_for('static', filename='tmp/titanic_mix.png') }}" alt="">
+          </div>
+
+        </div>
+
+
+        <div class="row">
+          <br> <br>
+          <div class="col-12">
+            <h4>PCA</h5>
+          </div>
+
+          {% for image in pcaImages: %}
+            {% if image == 'PCA__heatmap__.png' %}
+            <div class="col-12">
+            {% else %}
+            <div class="col-6">
+            {% endif %}
+                <img src="{{ url_for('static', filename='tmp/'+image) }}" alt="">
+            </div>
+          {% endfor %}
+
+        </div>
+
+        {% endif %}
+
+
+
+    </div>
+
+</body>
+</html>
+

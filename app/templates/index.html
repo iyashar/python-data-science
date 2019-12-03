@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome My Servies!</title>
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12">
+                <br>
+                <h4>Hi! <br> Welcome My Servies! <br> how are you?</h4>
+                <br> <br>
+            </div>
+            
+            <div class="col-12">
+                <h5>Please Choose  Data :)</h5>
+            </div>
+
+            <div class="col-12">
+                {% for name in csvNames : %}
+                    <a href="/show/{{name}}" class="h6">{{name}}</a> - 
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+
