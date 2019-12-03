@@ -114,16 +114,16 @@ def session5(df):
         fig = plt.figure(figsize=(6,4), dpi=95)
 
         ax = Axes3D(fig)
-        p = ax.scatter(X, Y, Z, c=session5_df[f"{feature}"], marker='o') # marker='o'
+        p = ax.scatter(X, Y, Z, c=session5_df[f"{feature}"], marker='o') 
 
         # plt.scatter(x, y, c=session5_df[f"{feature}"], cmap='plasma') #,edgecolor='none', alpha=0.5
         plt.title(f"{feature}")
         # plt.xlabel('PC-1')
         # plt.ylabel('PC-2')
 
-        ax.set_xlabel('X')
-        ax.set_ylabel('Y')
-        ax.set_zlabel('Z')
+        # ax.set_xlabel('X')
+        # ax.set_ylabel('Y')
+        # ax.set_zlabel('Z')
 
         plt.colorbar(p) 
         imgName = f'PCA__{feature}.png'
